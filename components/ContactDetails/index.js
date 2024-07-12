@@ -5,8 +5,16 @@ import lodash from "lodash";
 import Avatar from "../Avatar";
 
 import GlobalStyles from "../../helpers/GlobalStyles";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/slicers/contactSlicer";
 
 export default function ContactDetails({ details, onEditPress }) {
+  const dispatch = useDispatch();
+
+  function onDeletePress() {
+    dispatch(deleteContact(details.id));
+  }
+
   const contactActions = () => (
     <View
       style={{
@@ -34,7 +42,7 @@ export default function ContactDetails({ details, onEditPress }) {
           flexGrow: 1,
         }}
       >
-        <Button title="Delete" color={"#ef4444"} />
+        <Button title="Delete" color={"#ef4444"} onPress={onDeletePress} />
       </View>
     </View>
   );
