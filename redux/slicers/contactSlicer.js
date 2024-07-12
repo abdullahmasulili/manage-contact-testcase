@@ -53,6 +53,8 @@ export const updateContact = createAsyncThunk(
       method: "PUT",
       data: payload,
     });
+
+    return payload;
   }
 );
 
@@ -96,6 +98,15 @@ const contactSlice = createSlice({
       })
       .addCase(newContact.fulfilled, (state, action) => {
         state.contacts.push(action.payload);
+      })
+      .addCase(updateContact.fulfilled, (state, action) => {
+        const index = state.contacts.findIndex(
+          (item) => item.id === action.payload.id
+        );
+
+        if (index !== -1) {
+          state.contacts[index] = action.payload;
+        }
       });
   },
 });
