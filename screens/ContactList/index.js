@@ -20,7 +20,13 @@ export default function ContactList() {
     <SafeAreaView>
       <FlatList
         data={contacts}
-        renderItem={({ item }) => <ContactCard contactName={item.firstName} />}
+        renderItem={({ item }) => (
+          <ContactCard
+            contactId={item.id}
+            firstName={item.firstName}
+            lastName={item.lastName}
+          />
+        )}
         keyExtractor={(item) => item.id}
       />
     </SafeAreaView>
