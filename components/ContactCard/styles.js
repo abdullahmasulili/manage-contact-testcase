@@ -7,16 +7,11 @@ export default styles = StyleSheet.create({
     borderRadius: 15,
     overflow: "hidden",
   },
-  avatar: {
-    width: 35,
-    height: 35,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 100,
-    backgroundColor: "#2dd4bf",
-  },
   contentWrap: {
     margin: 10,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
   },
 });

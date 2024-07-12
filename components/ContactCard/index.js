@@ -10,6 +10,7 @@ export default function ContactCard() {
       <Pressable android_ripple={{ color: "#e2e8f0" }}>
         <View style={styles.contentWrap}>
           <Avatar />
+          <Text>John Doe</Text>
         </View>
       </Pressable>
     </View>
