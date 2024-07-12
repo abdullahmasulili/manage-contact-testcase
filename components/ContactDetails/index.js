@@ -6,7 +6,7 @@ import Avatar from "../Avatar";
 
 import GlobalStyles from "../../helpers/GlobalStyles";
 
-export default function ContactDetails({ details }) {
+export default function ContactDetails({ details, onEditPress }) {
   const contactActions = () => (
     <View
       style={{
@@ -24,7 +24,7 @@ export default function ContactDetails({ details }) {
           flexGrow: 1,
         }}
       >
-        <Button title="Edit" />
+        <Button title="Edit" onPress={onEditPress} />
       </View>
       <View
         style={{
