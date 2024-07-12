@@ -34,6 +34,18 @@ export const deleteContact = createAsyncThunk(
   }
 );
 
+export const newContact = createAsyncThunk(
+  "contact/newContact",
+  async (payload) => {
+    const response = await APIManager("/contact", {
+      method: "POST",
+      data: payload,
+    });
+
+    return payload;
+  }
+);
+
 const contactSlice = createSlice({
   name: "contacts",
   initialState: {
@@ -71,6 +83,9 @@ const contactSlice = createSlice({
         state.contacts = state.contacts.filter(
           (item) => item.id !== action.payload
         );
+      })
+      .addCase(newContact.fulfilled, (state, action) => {
+        state.contacts.push(action.payload);
       });
   },
 });
