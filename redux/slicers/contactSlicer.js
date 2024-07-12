@@ -23,6 +23,17 @@ export const getContactById = createAsyncThunk(
   }
 );
 
+export const deleteContact = createAsyncThunk(
+  "contact/deleteContact",
+  async (contactId) => {
+    await APIManager(`/contact/${contactId}`, {
+      method: "DELETE",
+    });
+
+    return contactId;
+  }
+);
+
 const contactSlice = createSlice({
   name: "contacts",
   initialState: {
@@ -55,6 +66,11 @@ const contactSlice = createSlice({
       .addCase(getContactById.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+      })
+      .addCase(deleteContact.fulfilled, (state, action) => {
+        state.contacts = state.contacts.filter(
+          (item) => item.id !== action.payload
+        );
       });
   },
 });
