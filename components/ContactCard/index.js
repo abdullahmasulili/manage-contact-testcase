@@ -7,7 +7,7 @@ import Avatar from "../Avatar";
 export default function ContactCard() {
   return (
     <View style={styles.container}>
-      <Pressable android_ripple={{ color: "#e2e8f0" }}>
+      <Pressable android_ripple={{ color: "#f1f5f9" }}>
         <View style={styles.contentWrap}>
           <Avatar />
           <Text>John Doe</Text>
