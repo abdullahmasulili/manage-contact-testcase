@@ -5,16 +5,17 @@ import lodash from "lodash";
 import styles from "./styles";
 import Avatar from "../Avatar";
 
-export default function ContactCard({ firstName, lastName, contactId }) {
+export default function ContactCard({
+  firstName,
+  lastName,
+  contactId,
+  onCardPress,
+}) {
   const [fullName, setFullName] = useState("");
 
   function resolveFullName() {
     const joinedName = firstName.concat(" ", lodash.upperFirst(lastName));
     setFullName(lodash.upperFirst(joinedName));
-  }
-
-  function onCardPress() {
-    console.log("pressed");
   }
 
   useEffect(() => {
