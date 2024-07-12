@@ -6,6 +6,7 @@ export default styles = StyleSheet.create({
     borderColor: "#e2e8f0",
     borderRadius: 15,
     overflow: "hidden",
+    marginVertical: 4,
   },
   contentWrap: {
     margin: 10,
