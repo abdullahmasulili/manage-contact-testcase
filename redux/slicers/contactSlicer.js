@@ -46,6 +46,16 @@ export const newContact = createAsyncThunk(
   }
 );
 
+export const updateContact = createAsyncThunk(
+  "contact/updateContact",
+  async (payload) => {
+    const response = await APIManager(`/contact/${payload.id}`, {
+      method: "PUT",
+      data: payload,
+    });
+  }
+);
+
 const contactSlice = createSlice({
   name: "contacts",
   initialState: {
