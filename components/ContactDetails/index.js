@@ -7,6 +7,37 @@ import Avatar from "../Avatar";
 import GlobalStyles from "../../helpers/GlobalStyles";
 
 export default function ContactDetails({ details }) {
+  const contactActions = () => (
+    <View
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        width: "100%",
+        gap: 10,
+      }}
+    >
+      <View
+        style={{
+          marginTop: 15,
+          borderRadius: 20,
+          overflow: "hidden",
+          flexGrow: 1,
+        }}
+      >
+        <Button title="Edit" />
+      </View>
+      <View
+        style={{
+          marginTop: 15,
+          borderRadius: 20,
+          overflow: "hidden",
+          flexGrow: 1,
+        }}
+      >
+        <Button title="Delete" color={"#ef4444"} />
+      </View>
+    </View>
+  );
   return (
     <>
       <Avatar size={"md"} />
@@ -30,9 +61,8 @@ export default function ContactDetails({ details }) {
           {details?.age ?? null}
         </Text>
       </View>
-      <View style={{ marginTop: 15, borderRadius: 20, overflow: "hidden" }}>
-        <Button title="Delete" color={"#ef4444"} />
-      </View>
+
+      {contactActions()}
     </>
   );
 }
